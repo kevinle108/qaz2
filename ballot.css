@@ -11,19 +11,15 @@ body {
 }
 
 .selectionContest {
-    /* border-bottom: 1px solid black; */
     margin: 10px;
 }
 
 .header-row {
-    /* background-color: #adb5bd; */
     background-color: whitesmoke;
     text-align: center;
 }
 
 .row.header { 
-    /* font-weight: bold; */
-    /* color: white; */
     background-color: whitesmoke;
 }
 
@@ -48,7 +44,6 @@ h1:focus, h2:focus, h3:focus, #inputsWrap_AffidavitPage input:focus {
     background-color: whitesmoke;
 }
 
-/* c2 is custom checkbox that doesn't use a span element */
 .c2 {
     width: 40px;
     opacity: 1;
@@ -87,13 +82,10 @@ h1:focus, h2:focus, h3:focus, #inputsWrap_AffidavitPage input:focus {
     background-color: #BBB
 }
 
-/* CUSTOM CHECKBOX */
-/* The container */
 .container {
     position: relative;
 }
 
-/* Hide the browser's default checkbox */
 .container input {
     position: absolute;
     opacity: 0;
@@ -102,7 +94,6 @@ h1:focus, h2:focus, h3:focus, #inputsWrap_AffidavitPage input:focus {
     width: 0px;
 }
 
-/* Create a custom checkbox */
 .checkmark {
     display: inline-block;
     height: 18px;
@@ -112,12 +103,10 @@ h1:focus, h2:focus, h3:focus, #inputsWrap_AffidavitPage input:focus {
     background-color: white;
 }
 
-/* On mouse-over, add a light grey background color */
 .container:hover input~.checkmark {
     background-color: #ddd;
 }
 
-/* When the checkbox is checked, add a black background */
 .container input:checked~.checkmark {
     background-color: black;
 }
@@ -127,7 +116,6 @@ h1:focus, h2:focus, h3:focus, #inputsWrap_AffidavitPage input:focus {
     box-shadow: 0 0 2px 1px dodgerblue;
 }
 
-/* styling for text-area housing the question to be voted on*/
 .question {
     border: 2px solid black;
     background-color: whitesmoke;
@@ -138,7 +126,6 @@ h1:focus, h2:focus, h3:focus, #inputsWrap_AffidavitPage input:focus {
     border-bottom: none;
 }
 
-/* wrapper styling for yes-no in question-type poll*/
 #yesNoWrap {
     display: flex;
     justify-content: space-between;
@@ -147,7 +134,6 @@ h1:focus, h2:focus, h3:focus, #inputsWrap_AffidavitPage input:focus {
     margin-bottom: 40px;
 }
 
-/* modifies checkmark for regular and question polls*/
 .checkmark.ballotCheckbox {
     margin-right: 10px;
     display: inline-block;
@@ -186,7 +172,6 @@ h1:focus, h2:focus, h3:focus, #inputsWrap_AffidavitPage input:focus {
 .candidateName {
     text-align: left;
     font-size: 20px;
-    /* display: inline; */
 }
 
 .candidateSubtitle {
@@ -295,16 +280,6 @@ td > .container {
     background-color: #CCC;
 }
 
-/* .reviewContest:focus {
-    background-color: #CCC;
-} */
-
-
-/*.reviewContestButton {
-    width: 60%; //800px;
-    margin: 3px 0;
-}*/
-
 #reviewPageInstructions {
     width: 60%;
     margin: 20px auto;    
@@ -332,7 +307,6 @@ td > .container {
 }
 
 .reviewPageNoSelection {
-    /* font-style: italic; */
     color: red;
     font-size: 20px;
     font-weight: bold;
@@ -341,8 +315,6 @@ td > .container {
 #reviewFooter {
     margin-top: 5px;
 }
-
-/* End styles for ReviewPage */
 
 #selection {
     display: block;
@@ -366,12 +338,10 @@ a {
     color: black;
 }
 
-/* Unvisited link  */
 a:visited {
     color: black;
 }
 
-/* Visited link    */
 a:focus {
     color: blue;
 }
@@ -379,8 +349,6 @@ a:focus {
 a:active {
     color: black;
 }
-
-/* Selected link   */
 
 button:focus {
     color: blue;
@@ -390,7 +358,6 @@ button:focus {
 .reviewCandidateName {
     margin-left: 50%;
 }
-/* end styles for ReviewPage */
 
 .modal {
     background-color: white;
@@ -526,7 +493,6 @@ button:hover {
 
 .row {
     display: table-row;
-    /* background: #f6f6f6; */
 }
 
 .table,.regCandidates, .questionDiv {
@@ -548,15 +514,6 @@ tbody {
     border: 2px solid black;
 }
 
-/* .rcOval {
-    position: absolute;
-    opacity: 0;
-    cursor: pointer;
-    height: 0px;
-    width: 0px;
-} */
-
-/* Create a custom checkbox */
 .rcCheckmark {
     display: inline-block;
     height: 18px;
@@ -567,13 +524,10 @@ tbody {
     margin-top: 6px;
 }
 
-
-/* On mouse-over, add a light grey background color */
 .rcCheckmark:hover {
     background-color: #ddd;
 }
 
-/* When the checkbox is checked, add a black background */
 .rcOval:checked~.rcCheckmark {
     background-color: black;
 }
@@ -600,7 +554,6 @@ tbody {
     margin: 1% 0 1% 0;
 }
 
-/* screen reader only aria alert div */
 .sr-only {
     position: absolute;
     left: -10000px;
@@ -640,9 +593,5 @@ tbody {
     }
     .reviewCandidates {
         margin: 0px auto;
-    }
-    /* .cell {
-        padding: 8px;
-    } */
-    
+    }   
 }   

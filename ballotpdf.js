@@ -1,7 +1,6 @@
 var times = 2;
 
 function createBallotPdf(ballot) {
-  // If the div containing all canvases exists, then empty it, else create it
   let canvases = document.getElementById("canvases")
   if (document.body.contains(canvases)) {
     canvases.innerHTML = ''
@@ -10,12 +9,10 @@ function createBallotPdf(ballot) {
     canvases = document.getElementById("canvases")
   }
 
-  // Declare a jsPDF object with orientation 'p' (Portrait) and size 'letter' (8.5" x 11")
   const pdf = new jsPDF('p', 'px', 'letter')
   const pdfWidth = pdf.internal.pageSize.getWidth();
   const pdfHeight = pdf.internal.pageSize.getHeight();
 
-  // For each page of the ballot, create a canvas, draw the page, then add the image to jsPdf
   const html = '<canvas id="CANVAS_ID" width="' + (850 * times) + '" height="' + (1100 * times) + '" style="border:1px solid black; display:block;"></canvas>'
 
   ballot.pages.forEach((page, index) => {
@@ -30,12 +27,10 @@ function createBallotPdf(ballot) {
     pdf.addImage(imgData, 'JPG', 0, 0, pdfWidth, pdfHeight);
   })
 
-  //  Done
   pdf.save("ballot.pdf");
 }
 
 function drawPage(canvas, ballot, index) {
-  // The 1st 2 lines prepare a white canvas -- Do not remove
   let ctx = canvas.getContext('2d');
   ctx.drawFilledRect(0, 0, canvas.width, canvas.height, 'white')
 
@@ -96,12 +91,6 @@ function drawOvals(ctx, ballot, index) {
   }
 }
 
-// *********************************************************
-// Utililty functions as methods of CanvasRenderingContext2D
-
-// This function draws a fixed-size oval, given the center(x,y) and
-// a boolean 'filled' indicating whether the oval is filled.
-// To adjust the size of the oval, change the constants xRadius & yRadius.
 CanvasRenderingContext2D.prototype.drawOval = function (x, y, filled) {
   const xRadius = 9.5
   const yRadius = 6.5
@@ -113,7 +102,6 @@ CanvasRenderingContext2D.prototype.drawOval = function (x, y, filled) {
   if (filled) this.fill()
 }
 
-// This function draws a line, given the 2 endpoints (x1,y1) & (x2,y2) and the line width.
 CanvasRenderingContext2D.prototype.drawLine = function (x1, y1, x2, y2, lineWidth) {
   this.beginPath()
   this.lineWidth = lineWidth * times
@@ -122,33 +110,24 @@ CanvasRenderingContext2D.prototype.drawLine = function (x1, y1, x2, y2, lineWidt
   this.stroke()
 }
 
-// This function draws a rectangle, given the top right corner (x,y),
-// the dimensions (dx,dy), and the line width.
 CanvasRenderingContext2D.prototype.drawRect = function (x, y, dx, dy, lineWidth) {
   this.lineWidth = lineWidth * times
   this.strokeRect(x * times, y * times, dx * times, dy * times)
 }
 
-// This function draws a filled rectangle, given the top right corner (x,y),
-// the dimensions (dx,dy), and the fill style.
-// Before returning, the function reset fillStyle back to 'black.'
 CanvasRenderingContext2D.prototype.drawFilledRect = function (x, y, dx, dy, fillStyle) {
   this.fillStyle = fillStyle
   this.fillRect(x * times, y * times, dx * times, dy * times)
   this.fillStyle = 'black' // reset the fillStyle back to black
 }
 
-// This function draws a multi-line text in a given area.
-// The text may contain several paragraphs separating by \n.
-// The lines are separated vertically by lineHeight, but a new paragraph has 1.5*lineHeight spacing.
-// The font size is optional. If not provided, the function uses whichever font currently in effect.
 CanvasRenderingContext2D.prototype.drawTextArea = function (text, x, y, dx, lineHeight, font = '') {
 
   if (font !== '') this.font = adjustFontSize(font)
 
   this.textAlign = 'left'
   this.textBaseline = 'top'
-  x += 2 // leave a margin of 2 px on the left, right, and top margin
+  x += 2
   x *= times
   y += 2
   y *= times
@@ -186,10 +165,6 @@ CanvasRenderingContext2D.prototype.drawTextArea = function (text, x, y, dx, line
   }
 }
 
-// This function draw a line of text at the given location (x,y). The optional arguments are:
-//   font: refer to https://www.w3schools.com/tags/canvas_font.asp
-//   align: left | right | center 
-//   baseline = top | bottom | middle
 CanvasRenderingContext2D.prototype.drawTextLine = function (txt, x, y, font = '', align = '') {
   if (font !== '') {
     this.font = adjustFontSize(font)

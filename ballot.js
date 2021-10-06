@@ -25,7 +25,6 @@ function initPage() {
 		elm.insertAdjacentHTML("beforeend", uocava)		
 	}
 
-    //start running other javascript after page is rendered
     let question = document.querySelectorAll('.questionRaceOval')
     question.forEach(checkbox => checkbox.addEventListener('click', questionHandler))
 
@@ -69,7 +68,6 @@ function processPassword() {
 			</div> 
 		`;
 		document.body.style.backgroundColor = "whitesmoke";
-		//document.getElementById('thankyouForVoting').focus();
 		document.getElementById('thankyouForVoting').scrollIntoView();      }
 	else {
 		passwordEle.value = ''

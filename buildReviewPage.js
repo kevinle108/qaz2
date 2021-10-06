@@ -58,7 +58,6 @@ function reviewBtnHandler(event) {
     const reviewContestClickables = document.querySelectorAll('.reviewContest')	
     reviewContestClickables.forEach(contest => contest.addEventListener('click', reviewBoxesHandler))
     
-    // adds keydown functionality when SPACEBAR or ENTER is pressed without screen-reader
     reviewContestClickables.forEach(contest => contest.addEventListener('keydown', e => {
         if (e.key === ' ' || e.key === 'Enter') {
             const contestId = e.target.id.replace('review_', '')
@@ -141,14 +140,12 @@ function backBtnHandler() {
     const header = document.querySelector('header')
     reviewPage.style.display = 'none'
     selectionPage.style.display = 'block'   
-    document.querySelector('input[type="checkbox"]').focus() // places focus on the first oval on page
+    document.querySelector('input[type="checkbox"]').focus()
     const reviewBody = document.getElementById('reviewBody')
     reviewBody.innerHTML = '';
     header.scrollIntoView();
 }
 
-// returns string with candidate's name + subtitle with all the html-text cleaned up (such as &quot; and <br>)
-// takes 1 argument: a string for the candidate's ovalId
 function getCandidateName(ovalId) {
     const candidate = getCandidate(ovalId)
     const contestIndex = ovalId.split('_')[0]

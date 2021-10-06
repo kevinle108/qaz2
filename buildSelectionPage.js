@@ -34,7 +34,6 @@ const rRaceHtml = `
     </div>
   </div>
 `
-// no heading
 const rcCandidateHtml = `
   <tr class="row" tabindex="0">
     <th scope="row" class="cell" data-title="Candidate">
@@ -160,10 +159,6 @@ function buildQuestionOptions(race, raceIndex) {
 
 function buildOptionAriaLabel(raceIndex, candidateIndex) {
   let txt = ''
-  // txt += 'Race ' + (raceIndex+1) + ' of ' + ballot.contests.length + ' '
-  // txt += 'This is a ballot question. '
-  // txt += ballot.contests[raceIndex].contestName + '. '
-  // txt += 'Option ' + (candidateIndex + 1) + ' of ' + ballot.contests[raceIndex].candidates.length + ': '
   txt += ballot.contests[raceIndex].candidates[candidateIndex].candidateName + ' for ' + ballot.contests[raceIndex].contestName
 
   return txt
@@ -236,7 +231,6 @@ function buildRcCandidateOvals(race, raceIndex, candidateIndex) {
     }
   }
   else {
-    // no heading
     for (let rankIndex = 0; rankIndex < race.candidates.length; rankIndex++) {
       html += ovalHtml.replace(/{OVAL_ID}/g, `${raceIndex}_${candidateIndex}_${rankIndex}`)
                       .replace(/{OVAL_ARIA_LABEL}/g, `${choiceLabel(rankIndex+1)} choice ${candidateInfoString(raceIndex, candidateIndex)}`)
@@ -291,7 +285,6 @@ function candidateInfoString(raceIndex, candidateIndex) {
 function shortenedName(raceIndex, candidateIndex) {
   const candidate = ballot.contests[raceIndex].candidates[candidateIndex]
   let split = candidate.candidateName.split('<br>')
-  // return last names only when there is more than one candidate in the name, otherwise return the fullname
   if (split.length > 1) {
     let lastNames = new Array()
     for (let name of split) {
