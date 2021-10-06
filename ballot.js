@@ -1,6 +1,11 @@
 let activeWriteinOvalId = ''
 let loadTimer = setInterval(initPage, 100)
 const idHtmlTemplate = '{contestIndex}_{candidateIndex}_{rankIndex}'
+let uocava = `<label>I am a (check only one):</label><br><br>
+    <input id="uniform" type="radio" class="rcCheckmark" name="uniformOrOverseas" value="uniform" checked>
+	<label for="uniform">Member of the Uniformed Services or Merchant Marine on active duty, or an eligible spouse or dependent, and absent from place of registration.</label><br><br>
+    <input id="overseas" type="radio" class="rcCheckmark" name="uniformOrOverseas" value="overseas">
+    <label for="overseas">U.S. citizen residing outside the United States (temporarily or indefinitely).</label><br>`
 
 function initPage() {
   if (document.readyState == 'complete') {
@@ -41,12 +46,12 @@ function initPage() {
     });
 	
     reviewBtnHandler();
-	elm = document.getElementById('ballotInstructions');
-	if (elm != null) {
-		elm.focus();	
-	} else {
-		document.getElementById('step1').focus();
-	}    
+		elm = document.getElementById('ballotInstructions');
+		if (elm != null) {
+			elm.focus();	
+		} else {
+			document.getElementById('step1').focus();
+		}    
   }
 }
 
@@ -87,12 +92,5 @@ function addWriteinsToData() {
     }
   })
 }
-
-
-let uocava = `<label>I am a (check only one):</label><br><br>
-    <input id="uniform" type="radio" class="rcCheckmark" name="uniformOrOverseas" value="uniform" checked>
-	<label for="uniform">Member of the Uniformed Services or Merchant Marine on active duty, or an eligible spouse or dependent, and absent from place of registration.</label><br><br>
-    <input id="overseas" type="radio" class="rcCheckmark" name="uniformOrOverseas" value="overseas">
-    <label for="overseas">U.S. citizen residing outside the United States (temporarily or indefinitely).</label><br>`
   
 
